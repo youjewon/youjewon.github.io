@@ -16,10 +16,10 @@ main:
   - title: "Categories"
     url: /categories/
     children:
-      - title: "백준"
-        url: /categories/백준/
-      - title: "임베디드"
-        url: /categories/임베디드/
+      - title: "BackJoon"
+        url: /categories/BackJoon/
+      - title: "Embedded"
+        url: /categories/Embedded/
        - title: "CPP"
         url: /categories/CPP/
 
