@@ -1,0 +1,112 @@
+# 백준 좌표 정렬하기 2
+
+문제
+2차원 평면 위의 점 N개가 주어진다. 좌표를 y좌표가 증가하는 순으로, y좌표가 같으면 x좌표가 증가하는 순서로 정렬한 다음 출력하는 프로그램을 작성하시오.
+
+입력
+첫째 줄에 점의 개수 N (1 ≤ N ≤ 100,000)이 주어진다. 둘째 줄부터 N개의 줄에는 i번점의 위치 xi와 yi가 주어진다. (-100,000 ≤ xi, yi ≤ 100,000) 좌표는 항상 정수이고, 위치가 같은 두 점은 없다.
+
+출력
+첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.
+
+
+### stuct 방식
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+struct Point {
+    int x, y;
+
+    // 비교 연산자 정의
+    bool operator<(const Point& other) const {
+        if (y == other.y) {
+            return x < other.x; // y좌표가 같으면 x좌표로 정렬
+        }
+        return y < other.y; // y좌표가 기준
+    }
+};
+
+int main() {
+    int N;
+    std::cin >> N;
+
+    std::vector<Point> points(N);
+
+    // 점 입력
+    for (int i = 0; i < N; ++i) {
+        std::cin >> points[i].x >> points[i].y;
+    }
+
+    // 정렬
+    std::sort(points.begin(), points.end());
+
+    // 출력
+    for (const auto& point : points) {
+        std::cout << point.x << " " << point.y << "\n";
+    }
+
+    return 0;
+}
+```
+struct Point 정의:
+
+x와 y 좌표를 멤버 변수로 갖는 구조체입니다.
+operator<를 오버로드하여 std::sort가 자동으로 정렬 기준을 인식하도록 합니다.
+비교 연산자 operator<:
+
+std::sort는 정렬 시 < 연산자를 사용합니다.
+operator<를 정의하여 정렬 기준을 명시적으로 지정합니다:
+y가 우선 기준.
+y가 같으면 x로 정렬.
+정렬:
+
+std::sort는 operator<를 기반으로 자동으로 정렬합니다.
+출력:
+
+struct 멤버 변수에 접근하여 정렬된 결과를 출력합니다.
+
+
+
+### vector 와 pair 방식 
+코드먼저
+
+```cpp
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
+
+int main() {
+    int n;
+    std::cin >> n;
+
+    std::vector<std::pair<int,int>> points(n);
+    for(int i = 0; i < n; i++) {
+        std::cin >> points[i].first >> points[i].second;
+    }
+
+    // 정렬
+    std::sort(points.begin(),points.end(),[](const std::pair<int,int>& a,const std::pair<int,int> b) {
+        if(a.second == b.second) {
+            return a.first < b.first;
+        }
+        return a.second < b.second;
+    });
+    
+    for(const auto& point : points) {
+        std::cout << point.first << " " << point.second << "\n";
+    }
+
+    return 0;
+}
+```
+
+위 방식은 std::vector와 std::pair를 이용한 방식으로 
+first(x 좌표)와 second(y 좌표)로 int형으로 저장하는 pair형 vector를 N 개 생성해 저장
+std::sort를 이용하여 저장하는데 3번째 매개변수에 사용자 정의 함수를 정의하여 정렬 방식을 수정함
+
+---
+
