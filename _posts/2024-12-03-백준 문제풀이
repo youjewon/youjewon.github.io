@@ -1,13 +1,13 @@
 ---
 
-layout : post
+layout : single
 title : "백준 좌표 구하기 2"
 date: 2024-11-26
-categories : [C++]
-tags : [C++]
-
+categories :
+ - 백준
+tags : 
+  - C++
 ---
-
 
 # 백준 좌표 정렬하기 2
 번호 11651번 실버 5
