@@ -13,14 +13,15 @@ main:
   
   - title: "Home"
     url: /
+  
+sidebar-categories:
   - title: "Categories"
-    url: /categories/
-categories:
-  - title: "BackJoon"
-    url: /categories/BackJoon/
-  - title: "Embedded"
-    url: /categories/Embedded/
-  - title: "CPP"
-    url: /categories/CPP/
+  children :
+    - title: "BackJoon"
+      url: /categories/BackJoon/
+    - title: "Embedded"
+      url: /categories/Embedded/
+    - title: "CPP"
+      url: /categories/CPP/
 
   
