@@ -14,14 +14,14 @@ main:
   - title: "Home"
     url: /
   
-sidebar-categories:
-  - title: "Categories"
-  children :
-    - title: "BackJoon"
-      url: /categories/BackJoon/
-    - title: "Embedded"
-      url: /categories/Embedded/
-    - title: "CPP"
-      url: /categories/CPP/
+sidebar-category:
+  - title: "카테고리"
+    children:
+      - title: "블로그"
+        url: "/blog"
+      - title: "카테고리B"
+        url:  "/CategoryB"
+      - title: "카테고리C"
+        url:  "/CategoryC"
 
   
