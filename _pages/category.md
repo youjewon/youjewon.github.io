@@ -1,7 +1,7 @@
 ---
 title: "blog"
-layout: archive
-permalink: /blog
+layout: categories
+permalink: /blog/
 ---
 
 
